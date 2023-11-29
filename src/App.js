@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='App'>
       <ToastContainer></ToastContainer>
-      <BrowserRouter>
+      <BrowserRouter basename="/shoe-order-mern">
       <Routes>
         <Route path='/' element={<Home/>}> </Route>
         <Route path='/login' element={<Login/>}></Route>
