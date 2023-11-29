@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from 'axios';
 
 const Register = () => {
 
@@ -17,17 +18,12 @@ const Register = () => {
 
     const handlesubmit = (e) => {
             e.preventDefault();
-            let regobj = { id, name, password, email, phone, country, address, gender };
-            fetch("http://localhost:3000/user", {
-                method: "POST",
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(regobj)
-            }).then((res) => {
-                toast.success('Registered successfully.')
-                navigate('/login');
-            }).catch((err) => {
-                toast.error('Failed :' + err.message);
-            });
+            axios.post('http://localhost:3001/register',{id,name,password, email, phone, country, address, gender})
+            .then(result=>{
+                toast.success('Success')
+                navigate('/login')
+                console.log(result)})
+            .catch(err=>console.log(err))
     }
     return (
         <div className="body">   

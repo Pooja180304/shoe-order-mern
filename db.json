@@ -1,38 +1,4 @@
-{
-  "user": [
-    {
-      "id": "Pooj18",
-      "name": "Pooja V",
-      "password": "qwertyu",
-      "email": "pooj@gmail.com",
-      "phone": "1234567890",
-      "country": "india",
-      "address": "Madurai,Tamilnadu.",
-      "gender": "female"
-    },
-    {
-      "id": "Priyam",
-      "name": "Priya V",
-      "password": "qwertyu",
-      "email": "priy@gmail.com",
-      "phone": "0987654321",
-      "country": "india",
-      "address": "Madurai,Tamilnadu",
-      "gender": "female"
-    },
-    {
-      "id": "Bhag",
-      "name": "Bhagam",
-      "password": "qwerty",
-      "email": "bhag@gmail.com",
-      "phone": "05678901234",
-      "country": "india",
-      "address": "Madurai",
-      "gender": "female"
-    }
-  ],
-  "Details": [
-    {
+[    {
       "Shoename": "Converse",
       "Price": 5000,
       "color": "Black",
@@ -74,36 +40,4 @@
       "size": "16",
       "image": "/images/shoe5.jpg"
     }
-  ],
-  "cart": [],
-  "updateCart": [
-    {
-      "cart": [
-        {
-          "Shoename": "Converse",
-          "Price": 5000,
-          "color": "Black",
-          "size": "12",
-          "image": "/images/download (1).jpg",
-          "quantity": 2,
-          "id": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "cart": [
-        {
-          "Shoename": "Converse",
-          "Price": 5000,
-          "color": "Black",
-          "size": "12",
-          "image": "/images/download (1).jpg",
-          "quantity": 3,
-          "id": 1
-        }
-      ],
-      "id": 2
-    }
-  ]
-}
+]

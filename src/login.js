@@ -1,46 +1,27 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from 'axios';
 
 const Login = () => {
-    const[username,Changeusername]=useState("");
+    const[id,Changeusername]=useState("");
     const[password,Changepassword]=useState("");
 
     const usenavigate = useNavigate()
 
     const ProceedLogin=(e)=>{
         e.preventDefault();
-        if(validate()){
-            fetch("http://localhost:3000/user/"+username).then((res)=>{
-                return res.json();
-            }).then((resp)=>{
-                console.log(resp);
-                if(Object.keys(resp).length===0){
-                    toast.error('Please enter valid username');    
-                }else{
-                    if(resp.password === password){
-                        toast.success('Success');
-                        usenavigate('/display')
-                    }else{
-                        toast.error('Please enter valid credentials');
-                    }
-                }
-            }).catch((err)=>{
-                toast.error('Login failed due to :'+err.message);
-            });
-        }
-    }
-    const validate=()=>{
-        let result = true;
-        if(username === ''|| username === null){
-            result=false;
-            toast.warning('Please enter username');
-        }
-        if(password===''||password===null){
-            result=false;
-            toast.warning('Please enter password');
-        }
-        return result;
+        axios.post('http://localhost:3001/login',{id,password})
+        .then(result => {console.log(result)
+            if(result.data==="Success"){
+                toast.success("Login Successful")
+                usenavigate('/display')
+            }else{
+                toast.error("Incorrect Password")
+            }
+            
+        })
+        .catch(err=>console.log(err))
     }
     return (  
         <div className="body" >
@@ -54,7 +35,7 @@ const Login = () => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label>username<span className="errmsg">*</span></label>
-                                <input value={username} onChange={e=>Changeusername(e.target.value)} className="form-control"></input>
+                                <input value={id} onChange={e=>Changeusername(e.target.value)} className="form-control"></input>
                             </div>
                             <div className="form-group">
                                 <label>Password<span className="errmsg">*</span></label>

@@ -1,63 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Cart = () => {
   const [cart, changecart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/cart")
-      .then((res) => res.json())
-      .then((resp) => {
-        changecart(resp);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    axios.get("http://localhost:3001/dis")
+      .then(cart => changecart(cart.data))
+      .catch((err) =>  console.log(err));
   }, []);
 
-  const updateQuantity = (item, newQuantity) => {
-    if (newQuantity >= 0) {
-      const updatedCart = cart.map((cartItem) => {
-        if (cartItem.id === item.id) {
-          cartItem.quantity = newQuantity;
-        }
-        return cartItem;
-      });
-
-      // Update the JSON file with the updated cart data
-      fetch("http://localhost:3000/updateCart", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ cart: updatedCart }),
-      })
-        .then((res) => res.json())
-        .then((resp) => {
-          changecart(updatedCart);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
-  };
-
   const removeItem = (id) => {
-    fetch(`http://localhost:3000/cart/${id}`, {
-      method: "DELETE",
+    axios.delete('http://localhost:3001/deleteUser/'+id)
+    .then(res =>{ 
+      console.log(res)
+      window.location.reload()
+      toast.success("Item removed")
     })
-      .then((res) => {
-        if (res.ok) {
-          changecart(cart.filter((item) => item.id !== id));
-          toast.success("Item removed successfully");
-        } else {
-          toast.error("Item not removed");
-        }
-      })
-      .catch((err) => {
-        console.error("Error deleting item:", err);
-      });
+    .catch(err=>console.log(err))
   };
 
   return (
@@ -68,25 +30,17 @@ const Cart = () => {
         <Link to={'/'}className="logou-button">Logout</Link>
       </header>
       <div className="con">
-        {cart.map((item, index) => (
-          <div key={index} className="cart-item">
+        {cart.map(item => {
+          return <div className="cart-item">
             <div className="cart-content">
             <h2>{item.Shoename}</h2>
-            <p>Size: {item.size}</p>
-            <p>Price: ${item.Price}</p>
-            <div className="quantity">
-              <button onClick={() => updateQuantity(item, item.quantity - 1)}className="btn btn-primary">-</button>
-              &nbsp;&nbsp;
-              <span className="quan">{item.quantity}</span>
-              &nbsp;&nbsp;
-              <button onClick={() => updateQuantity(item, item.quantity + 1)}className="btn btn-primary">+</button>
-            </div>
+            <p>color: {item.color}</p>
             <br/>
-              <button onClick={() => removeItem(item.id)} className="btn btn-danger">Remove</button>
+              <button onClick={() => removeItem(item._id)} className="btn btn-danger">Remove</button>
           </div>
           <img src={item.image} alt={item.Shoename} className="img-size" />
           </div>
-        ))}
+    })}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Home = () => {
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <h1 className="txt">Welcome to ShoeTrove</h1>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <h2 className="txt"> Unlock the World of Footwear!!</h2>
+            <h2 className="txt"> Unlock the World of Footwear</h2>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <h3 className="txt">Join ShoeTrove Today! Where Every Step Leads to Style.</h3>
             <br/>
