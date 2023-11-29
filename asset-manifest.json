@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/shoe-order-mern/static/css/main.001e85e7.css",
-    "main.js": "/shoe-order-mern/static/js/main.828d33a8.js",
+    "main.js": "/shoe-order-mern/static/js/main.25856d2b.js",
     "static/js/787.41ef9d90.chunk.js": "/shoe-order-mern/static/js/787.41ef9d90.chunk.js",
     "static/media/shoe.jpg": "/shoe-order-mern/static/media/shoe.41a000da459f80a37ce4.jpg",
     "static/media/Loginimg.jpg": "/shoe-order-mern/static/media/Loginimg.8389ee7ca6f735f10f5c.jpg",
     "static/media/bg.jpg": "/shoe-order-mern/static/media/bg.b9b76a7a9725cc65a16e.jpg",
     "index.html": "/shoe-order-mern/index.html",
     "main.001e85e7.css.map": "/shoe-order-mern/static/css/main.001e85e7.css.map",
-    "main.828d33a8.js.map": "/shoe-order-mern/static/js/main.828d33a8.js.map",
+    "main.25856d2b.js.map": "/shoe-order-mern/static/js/main.25856d2b.js.map",
     "787.41ef9d90.chunk.js.map": "/shoe-order-mern/static/js/787.41ef9d90.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.001e85e7.css",
-    "static/js/main.828d33a8.js"
+    "static/js/main.25856d2b.js"
   ]
 }
