@@ -17,7 +17,7 @@ const Display = () => {
         Shoename: item.Shoename,
         Price: item.Price,
         color: item.color,
-        Size: item.Size,
+        size: item.size,
         image: item.image,
     };
 
@@ -50,7 +50,7 @@ const Display = () => {
             <h2>{item.Shoename}</h2>
             <p>Size: {item.size}</p>
             <p>Color:{item.color}</p>
-            <p>${item.price}</p>
+            <p>${item.Price}</p>
             <button type="submit" onClick={() => addTocart(item)}>Add to Cart</button>
           </div>
       })}
